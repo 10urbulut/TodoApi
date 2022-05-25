@@ -9,7 +9,7 @@ namespace Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, new()
-        where TContext : DataBaseContext, new()
+        where TContext : DatabaseContext, new()
     {
         public void Add(TEntity entity)
         {

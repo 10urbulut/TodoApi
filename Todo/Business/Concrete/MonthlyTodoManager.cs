@@ -1,4 +1,5 @@
-﻿using Todo.Business.Abstract;
+﻿using Microsoft.AspNetCore.Authorization;
+using Todo.Business.Abstract;
 using Todo.Core;
 using Todo.Core.Utilities.Results;
 using Todo.Core.Utilities.Results.DataResult;
@@ -16,7 +17,7 @@ namespace Todo.Business.Concrete
         {
             _monthlyTodoDal = monthlyTodoDal;
         }
-
+        
         public IResult Add(MonthlyTodo monthlyTodo)
         {
             if (monthlyTodo is null)
@@ -29,7 +30,7 @@ namespace Todo.Business.Concrete
             return new SuccessResult(ConstantStrings.EKLENDI);
         }
 
-
+        
         public IResult Delete(MonthlyTodo monthlyTodo)
         {
             if (monthlyTodo is null)
@@ -45,14 +46,14 @@ namespace Todo.Business.Concrete
             return new SuccessDataResult<List<MonthlyTodo>>(_monthlyTodoDal.GetAll());
         }
 
-
+        
         public IDataResult<MonthlyTodo> GetById(int monthlyTodoId)
         {
             return new SuccessDataResult<MonthlyTodo>(_monthlyTodoDal.Get(dt => dt.Id == monthlyTodoId));
         }
 
 
-
+        
         public IResult Update(MonthlyTodo monthlyTodo)
         {
             if (monthlyTodo is null)

@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Todo.Business.Abstract;
 using Todo.Core.Utilities.Results.DataResult;
@@ -10,6 +11,7 @@ namespace Todo.Controllers
 {
     [Route("api/MonthlyTodo")]
     [ApiController]
+    [Authorize]
     public class MonthlyTodosController : ControllerBase
     {
         IMonthlyTodoService _monthlyTodoService;

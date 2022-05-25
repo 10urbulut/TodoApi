@@ -4,7 +4,7 @@ using Todo.Entities;
 
 namespace Todo.DataAccess.Concrete
 {
-    public class MonthlyTodoDal : EfEntityRepositoryBase<MonthlyTodo, DataBaseContext>, IMonthlyTodoDal
+    public class MonthlyTodoDal : EfEntityRepositoryBase<MonthlyTodo, DatabaseContext>, IMonthlyTodoDal
     {
     }
 }

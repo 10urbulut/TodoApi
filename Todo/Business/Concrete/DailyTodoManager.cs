@@ -1,4 +1,5 @@
-﻿using Todo.Business.Abstract;
+﻿using Microsoft.AspNetCore.Authorization;
+using Todo.Business.Abstract;
 using Todo.Core;
 using Todo.Core.Utilities.Results;
 using Todo.Core.Utilities.Results.DataResult;
@@ -17,6 +18,7 @@ namespace Todo.Business.Concrete
             _dailyTodoDal = dailyTodoDal;
         }
 
+
         public IResult Add(DailyTodo dailyTodo)
         {
             if (dailyTodo is null)
@@ -29,7 +31,7 @@ namespace Todo.Business.Concrete
             return new SuccessResult(ConstantStrings.EKLENDI);
         }
 
-
+        
         public IResult Delete(DailyTodo dailyTodo)
         {
             if (dailyTodo is null)
@@ -41,20 +43,20 @@ namespace Todo.Business.Concrete
             return new SuccessResult(ConstantStrings.SILINDI);
         }
 
-
+        
         public IDataResult<List<DailyTodo>> GetAll()
         {
             return new SuccessDataResult<List<DailyTodo>>(_dailyTodoDal.GetAll());
         }
 
-
+        
         public IDataResult<DailyTodo> GetById(int dailyTodoId)
         {
             return new SuccessDataResult<DailyTodo>(_dailyTodoDal.Get(dt => dt.Id == dailyTodoId));
         }
 
-      
 
+        
         public IResult Update(DailyTodo dailyTodo)
         {
             if (dailyTodo is null)

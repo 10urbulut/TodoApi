@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Todo.Business.Abstract;
 using Todo.Core.Utilities.Results.DataResult;
@@ -10,6 +11,7 @@ namespace Todo.Controllers
 {
     [Route("api/DailyTodo")]
     [ApiController]
+    [Authorize]
     public class DailyTodosController : ControllerBase
     {
         IDailyTodoService _dailyTodoService;
@@ -19,6 +21,7 @@ namespace Todo.Controllers
             _dailyTodoService = dailyTodoService;
         }
 
+        [Authorize]
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
